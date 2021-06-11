@@ -18,7 +18,7 @@
   "scripts": {
     "dev": "nuxt example",
     "build": "rollup -c",
-    "lint": "ls",
+    "lint": "ls -i",
     "prepublish": "yarn build",
     "release": "yarn test && standard-version && git push --follow-tags && npm publish",
     "test": "yarn lint && jest"
