@@ -1,103 +1,64 @@
-# TSDX User Guide
+[![@nuxtjs/color-mode](https://color-mode.nuxtjs.org/preview.png)](https://color-mode.nuxtjs.org)
 
-Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
+# @nuxtjs/color-mode
 
-> This TSDX setup is meant for developing libraries (not apps!) that can be published to NPM. If you’re looking to build a Node app, you could use `ts-node-dev`, plain `ts-node`, or simple `tsc`.
+[![npm version][npm-version-src]][npm-version-href]
+[![Github Actions CI][github-actions-ci-src]][github-actions-ci-href]
+[![Codecov][codecov-src]][codecov-href]
+[![License][license-src]][license-href]
 
-> If you’re new to TypeScript, checkout [this handy cheatsheet](https://devhints.io/typescript)
+> 🌑 Dark and 🌕 Light mode with auto detection made easy with NuxtJS
 
-## Commands
+[![nuxt-color-mode](https://user-images.githubusercontent.com/904724/79349768-f09cf080-7f36-11ea-93bb-20fae8c94811.gif)](https://color-mode.nuxtjs.app/)
 
-TSDX scaffolds your new library inside `/src`.
+<p align="center">
+  <a href="https://color-mode.nuxtjs.app">Live demo</a>
+</p>
 
-To run TSDX, use:
+- [✨ &nbsp;Release Notes](https://color-mode.nuxtjs.org/releases)
+- [📖 &nbsp;Documentation](https://color-mode.nuxtjs.org)
 
-```bash
-npm start # or yarn start
-```
+## Features
 
-This builds to `/dist` and runs the project in watch mode so any edits you save inside `src` causes a rebuild to `/dist`.
+- Add `.${color}-mode` class to `<html>` for easy CSS theming
+- Force a page to a specific color mode (perfect for incremental development)
+- Works with any NuxtJS target (`static` or `server`) and rendering (`universal` and `spa`)
+- Auto detect the system [color-mode](https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-color-mode)
+- Sync dark mode across tabs and windows 🔄
+- Supports IE9+ 👴
 
-To do a one-off build, use `npm run build` or `yarn build`.
+[📖 &nbsp;Read more](https://color-mode.nuxtjs.org)
 
-To run tests, use `npm test` or `yarn test`.
+## Contributing
 
-## Configuration
+You can contribute to this module online with CodeSandBox:
 
-Code quality is set up for you with `prettier`, `husky`, and `lint-staged`. Adjust the respective fields in `package.json` accordingly.
+[![Edit @nuxtjs/color-mode](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/nuxt-community/color-mode-module/tree/master/?fontsize=14&hidenavigation=1&theme=dark)
 
-### Jest
+Or locally:
 
-Jest tests are set up to run with `npm test` or `yarn test`.
+1. Clone this repository
+2. Install dependencies using `yarn install` or `npm install`
+3. Start development server using `yarn dev` or `npm run dev`
 
-### Bundle Analysis
+## License
 
-[`size-limit`](https://github.com/ai/size-limit) is set up to calculate the real cost of your library with `npm run size` and visualize the bundle with `npm run analyze`.
+[MIT License](./LICENSE)
 
-#### Setup Files
+Copyright (c) NuxtJS Team
 
-This is the folder structure we set up for you:
+<!-- Badges -->
+[npm-version-src]: https://img.shields.io/npm/v/@nuxtjs/color-mode/latest.svg
+[npm-version-href]: https://npmjs.com/package/@nuxtjs/color-mode
 
-```txt
-/src
-  index.tsx       # EDIT THIS
-/test
-  blah.test.tsx   # EDIT THIS
-.gitignore
-package.json
-README.md         # EDIT THIS
-tsconfig.json
-```
+[npm-downloads-src]: https://img.shields.io/npm/dt/@nuxtjs/color-mode.svg
+[npm-downloads-href]: https://npmjs.com/package/@nuxtjs/color-mode
 
-### Rollup
+[github-actions-ci-src]: https://github.com/nuxt-community/color-mode-module/workflows/ci/badge.svg
+[github-actions-ci-href]: https://github.com/nuxt-community/color-mode-module/actions?query=workflow%3Aci
 
-TSDX uses [Rollup](https://rollupjs.org) as a bundler and generates multiple rollup configs for various module formats and build settings. See [Optimizations](#optimizations) for details.
+[codecov-src]: https://img.shields.io/codecov/c/github/nuxt-community/color-mode-module.svg
+[codecov-href]: https://codecov.io/gh/nuxt-community/color-mode-module
 
-### TypeScript
-
-`tsconfig.json` is set up to interpret `dom` and `esnext` types, as well as `react` for `jsx`. Adjust according to your needs.
-
-## Continuous Integration
-
-### GitHub Actions
-
-Two actions are added by default:
-
-- `main` which installs deps w/ cache, lints, tests, and builds on all pushes against a Node and OS matrix
-- `size` which comments cost comparison of your library on every pull request using [`size-limit`](https://github.com/ai/size-limit)
-
-## Optimizations
-
-Please see the main `tsdx` [optimizations docs](https://github.com/palmerhq/tsdx#optimizations). In particular, know that you can take advantage of development-only optimizations:
-
-```js
-// ./types/index.d.ts
-declare var __DEV__: boolean;
-
-// inside your code...
-if (__DEV__) {
-  console.log('foo');
-}
-```
-
-You can also choose to install and use [invariant](https://github.com/palmerhq/tsdx#invariant) and [warning](https://github.com/palmerhq/tsdx#warning) functions.
-
-## Module Formats
-
-CJS, ESModules, and UMD module formats are supported.
-
-The appropriate paths are configured in `package.json` and `dist/index.js` accordingly. Please report if any issues are found.
-
-## Named Exports
-
-Per Palmer Group guidelines, [always use named exports.](https://github.com/palmerhq/typescript#exports) Code split inside your React app instead of your React library.
-
-## Including Styles
-
-There are many ways to ship styles, including with CSS-in-JS. TSDX has no opinion on this, configure how you like.
-
-For vanilla CSS, you can include it at the root directory and add it to the `files` section in your `package.json`, so that it can be imported separately by your users and run through their bundler's loader.
-
-## Publishing to NPM
-
-We recommend using [np](https://github.com/sindresorhus/np).
+[license-src]: https://img.shields.io/npm/l/@nuxtjs/color-mode.svg
+[license-href]: https://npmjs.com/package/@nuxtjs/color-mode
